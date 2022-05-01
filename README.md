@@ -9,7 +9,7 @@ Esse projeto foi construído para a conclusão do curso de ADS na disciplina de 
 2. Instale as depêndencias
     - npm install
 3. Inicia o servidor
-    - npm ???
+    - npm app.js
 
 # Dependências utilizadas
 1. Express - Framework para gerenciar as requisições e rotas; 
