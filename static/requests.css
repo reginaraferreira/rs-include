@@ -1,0 +1,52 @@
+.requests{
+   /* background-color: red;*/
+   display: inline-block;
+    height: 50%;
+}
+
+.requests-area{
+    padding: 15px;
+}
+
+.dov-requests{
+    overflow-x: scroll;
+    display: flex;
+    width: 77%;
+}
+
+.requests-area h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.btn-requests {
+    display: block;
+}
+
+input.btn-accept, .btn-delete{
+    width: 100px;
+    height: 30px;
+    border-radius: 30PX;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+input.btn-delete{
+    background-color: #D62A76;
+}
+
+input.btn-accept{
+    background-color: #42C16C;
+}
+
+input.btn-accept:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
+}
+
+input.btn-delete:hover{
+    background-color: #A8518A;
+    transition: all 0.3s linear;
+}

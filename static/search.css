@@ -1,0 +1,32 @@
+.search{
+    height: 15%;
+}
+.search_area{
+    float: right;
+    background-color:#FFFFFF;
+    border:solid 1px #C4C4C4;
+    border-radius:15px;
+    width:250px;
+    height: 35px;
+    margin: 25px;
+}
+
+textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+  
+#txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:13px;
+    font-size:18px;
+    border:none;
+    height:32px;
+    width:210px;
+}
+
+img#btnBusca {
+    width: 10%;
+    margin-top: 3px;
+}

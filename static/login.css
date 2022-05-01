@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(img/background.jpg) no-repeat;
+    background-size: 100%;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    width: 650px;
+    margin-top:50px;
+}
+
+.espaco{ 
+    height: 50px;
+}
+
+.logo-principal img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.logo-principal h3{
+    text-align: center;
+    padding-top:30px;
+    padding-bottom:20px;
+    color: #fff;
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 17px;
+}
+
+.area-login{
+    background: rgba(255,255,255,0.1);
+    background-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col-md-9-entrar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col-md-9-entrar p{
+    color:#fff;
+    font-size:14px;
+}
+
+.col-md-9-entrar a{
+    color:#507CBD;
+    font-weight: bold;
+}
+
+.login{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.login a{
+    color: #fff;
+    font-size: 14px;
+    float: right;
+    padding-top: 5px;
+}
+
+input.buttonlogin{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    height: 30px;
+    background-color: #42C16C;
+    border-radius: 30PX;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+input.buttonlogin:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
+}
+
+input.email, .senha{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin: 3px;
+    text-indent: 10px;
+    background: #C4C4C4;
+}
+
+fieldset{
+    border: none;
+}

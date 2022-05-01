@@ -1,0 +1,19 @@
+.competence-area{
+	background-color: #F0F0F0;
+	border-radius: 10px;
+	margin-bottom: 15px;
+	padding-top: 10px;
+	padding-left: 15px;
+}
+
+p.number-competence{
+	display: inline;
+	font-size: 35px;
+	font-weight: bold;
+	color: #A8518A;
+	margin-right: 5px;
+}
+
+p.info-competence{
+	display: inline;
+}

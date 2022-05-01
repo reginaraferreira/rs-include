@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+	color: #4F515D;
+}
+
+p{
+	margin: 0;
+}

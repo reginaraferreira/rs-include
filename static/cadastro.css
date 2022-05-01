@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url(img/background.png) no-repeat;
+    background-size: cover;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    background: rgba(79,81,93,0.7);
+    background-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 650px;
+    margin-top:50px;
+    border-radius:15px;
+}
+
+.espaco{ 
+    height: 50px;
+}
+
+button.botaocriarconta{
+    display: inline-block;
+    float: right;
+    width: 150px;
+    height: 30px;
+    background-color: #42C16C;
+    border-radius: 30PX;
+    margin-top: -35px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+button.botaocriarconta:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
+}
+
+.area-cadastro h5, h6{
+    color: #fff;
+    text-shadow: 0.1em 0.1em 0.2em black
+}
+
+.area-cadastro input::placeholder{
+    color: #fff;
+}
+
+input.input-text-cadastro1{
+    width: 307px;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-indent: 10px;
+    background: #C4C4C4;
+}
+
+input.input-text-cadastro2{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-indent: 10px;
+    background: #C4C4C4;
+}
+
+#dia{
+    width: 120px;
+}
+
+#mes{
+    width: 300px;
+}
+
+#ano{
+    width: 190px;
+}
+
+select.number-cadastro{
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-indent: 10px;
+    background: #C4C4C4;
+    color: #FFF;
+}
+
+label.termosdeuso{
+    display: inline;
+}
+
+.termosdeuso{
+    color: #fff;
+}
+
+.termosdeuso a{
+    color: #C4C4C4;
+    text-decoration: underline;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.termosdeuso a:hover{
+    color:#C4C4C4;
+}
+
+fieldset{
+    border: none;
+}
+
+@media (max-width:991px){
+
+    body{
+        background-size: auto;
+    }
+
+    .container {
+        display: inline-table;
+        width: 330px;
+    }
+
+    input.botaocriarconta {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+    }
+}

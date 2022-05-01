@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+	color: #4F515D;
+}
+
+p{
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+	color: #4F515D;
+}
+
+a:hover{
+	text-decoration: none;
+}
+/*------------INICIO MENU------------*/
+.header-main{
+	background: linear-gradient(45deg, #C4C4C4, #fff);
+	padding: 10px;
+	box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    position: relative;
+}
+
+.logo-header{
+	width: 50px;
+	float: left;
+	margin-left: 40px;
+}
+
+.area-login-user{
+	width: 190px;
+	text-align: center;
+	font-size:15px;
+	margin-left: 25px;
+}
+
+.area-login-user p{
+	width: 185px;
+}
+
+.area-login-user a{
+	color:#4F515D;
+	font-weight: 700;
+}
+
+.col-md-6-icons a{
+	color:#4F515D;
+	text-decoration: none;
+}
+
+.icons-menu{
+	display: flex;
+	list-style-type: none;
+}
+
+.col-md-6-icons,.col-md-3-icons {
+	display: flex;
+	text-align: center;
+}
+
+.col-md-6-icons{
+	display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col-md-3-icons{
+	margin-left:180px;
+}
+
+.col-md-6-icons,.col-md-3-icons p{
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.col-md-6-icons img{
+	width:40px;
+}
+
+.col-md-3-icons img{
+	width:40px;
+}
+
+.icon-house,.icon-friends,.icon-jobs,.icon-notifications,.icon-exit{
+	margin-right:40px;
+}
+
+.icon-exit a p {
+    margin-left: -15px;
+}
+/*------------FIM MENU------------*/

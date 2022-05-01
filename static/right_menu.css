@@ -1,0 +1,51 @@
+/*------------INICIO MENU DIREITO------------*/
+.col-md-3-side-right{
+	flex: 0 0 25%;
+	max-width: 25%;
+	padding: 20px;
+}
+
+.friends-zone{
+	border-bottom: 1px solid #C4C4C4;
+	margin-bottom: 15px;
+}
+
+.friends-zone h5{
+	margin-bottom:15px;
+	font-weight: bold;
+}
+
+img.img-friends{
+	width: 60%;
+}
+
+.img-friends{
+	display: flex;
+    margin-left: auto;
+    margin-right: auto;
+	border-radius:15px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
+.col-md-4 p{
+	text-align: center;
+	margin-top:5px;
+	margin-bottom: 15px;
+	line-height: 1.2;
+}
+
+.col-md-4 a{
+	text-decoration: none;
+	color: #4F515D;
+}
+
+.group-zone{
+	border-bottom: 1px solid #4F515D;
+	margin-bottom: 15px;
+}
+
+.group-zone h5{
+	margin-bottom:15px;
+	font-weight: bold;
+}
+/*------------FIM MENU DIREITO------------*/

@@ -1,0 +1,18 @@
+.recommendation-area{
+	border-bottom: 1px solid #C4C4C4;
+	margin-bottom: 15px;
+}
+
+img.img-recommendation {
+    width: 15%;
+    border-radius: 15px;
+	margin-right: 10px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
+p.info-competence-text {
+    font-size: 14px;
+    font-style: italic;
+    text-align: justify;
+    margin-top: 10px;
+}
