@@ -35,7 +35,12 @@
                             </fieldset>
                                 <input class="buttonlogin" type="submit" onclick="fazerLogin" value="Entrar">
                         </div>
-            </form>
+                </form>
+                <% if(message) { %>
+                    <p>
+                    <label style="color:Red"><%= message %></label>
+                    </p>
+                <%}%>
                 <div class="row">
                     <div class="col-md-9-entrar">
                         <p> Não possui uma conta? <a href="http://localhost:8080/cadastro"> Cadastre-se </a></p>

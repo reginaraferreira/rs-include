@@ -21,8 +21,12 @@ app.use(session({
     cookie: { maxAge: 30 * 60 * 1000 }//30min
   }))
 
-app.get('/', function(req, res){
-    res.render('login');
+app.get('/', function(req, res, next){
+   // if (req.query.fail){
+   //     res.render('login', { message:"Usuário e/ou senha incorretos!"});
+    //}else{
+        res.render('login', { message: null });
+  //  }
 });
 
 app.get('/cadastro', function(req, res){
@@ -122,7 +126,7 @@ app.post('/login', function (req, res){
             console.log(validacao_senha instanceof Cadastro);
             res.render('feed_noticias');
         } else {
-            console.log('Not found!');
+            res.render('login', { message:"Usuário e/ou senha incorretos!"});
         }
     })();
 })
