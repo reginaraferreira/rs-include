@@ -17,21 +17,42 @@ const Cadastro = db.sequelize.define('cadastro', {
         }
     },
     sobrenome: {
+        type: db.Sequelize.STRING,
+        allowNull:false
+    },
+    nascimento: {
         type: db.Sequelize.STRING
     },
     estado: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.STRING,
+        allowNull:false
     },
     cidade: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.STRING,
+        allowNull:false
     },
     senha: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.STRING,
+        allowNull:false
     },
     confsenha: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.STRING,
+        allowNull:false
     },
     email: {
+        type: db.Sequelize.STRING,
+        allowNull:false
+    },
+    escolaridade: {
+        type: db.Sequelize.STRING
+    },
+    instituicao:{
+        type: db.Sequelize.STRING
+    },
+    empresa:{
+        type: db.Sequelize.STRING
+    },
+    cargo:{
         type: db.Sequelize.STRING
     }
 
@@ -40,4 +61,4 @@ const Cadastro = db.sequelize.define('cadastro', {
 //Criar a tabela
 //Cadastro.sync({force: true})
 
-module.exports = Cadastro
+module.exports = Cadastro;

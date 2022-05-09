@@ -3,28 +3,93 @@
     <%- include('./partials/head'); %>
     <title>Editar Perfil</title>
     <link rel="stylesheet" type="text/css" href="/static/feed.css">
+    <link rel="stylesheet" type="text/css" href="/static/editar_perfil.css">
 </head>
 <body>
 	<%- include('./partials/menu'); %>
     <div class="body-feed">
         <div class="row-feed">
             <div class="col-md-3-side-left"> <!--INICIO MENU ESQUERDO-->
-                <%- include('./partials/user_area_edit'); %>
-                <%- include('./partials/win_area'); %>
             </div> <!--FIM MENU ESQUERDO-->
-            
+        
             <div class="col-md-6-feed"> <!--INICIO FEED-->
-              <div class="head-feed">
-                <%- include('./partials/competence_area'); %>
-                <%- include('./partials/create_publication'); %>
-                <div class="feed-updates-zone">
-                    <!--feed de noticias -->
+                <div class="info-user-area-edit">
+                    <form action="/editar-perfil" method="post">
+                        <div class="row">
+                            <img src="static/img/perfil1.png" class="img-profile" type="button">
+                            <label for="imagemPhoto"><img src="static/img/camera.png" id="imgPhoto"></label>
+                            <input type="file" id="avatar-profile" name="img-profile" accept="image/*">
+                        </div>
+                        <div class="menu-info-user">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <p>Nome: </p><input class="nome-user-edit" type="text" value="Novo Teste">
+                                </div>
+                                <div class="col-md-5">
+                                    <p>Sobrenome: </p><input class="info-user-edit" type="text" value="Ferreira">
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-3">
+                                        <p>Data de Nascimento: </p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="info-user-edit" type="text" value="Dia">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="info-user-edit" type="text" value="Mês">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="info-user-edit" type="text" value="Ano">
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Estado: </p><input class="info-user-edit" type="text" value="Rio Grande do Sul">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Cidade: </p><input class="info-user-edit" type="text" value="Caxias do Sul">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-educacao">
+                        <h5>Educação</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Escolaridade: </p><input class="info-user-edit" type="text" value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Instituição: </p><input class="info-user-edit" type="text" value="UNIFTEC">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-work">
+                            <h5>Trabalho</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Empresa: </p><input class="info-user-edit" type="text" value="">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>Cargo Atual: </p><input class="info-user-edit" type="text" value="Estudante">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6-botoes">
+                            <input class="botaoredefinir" type="submit" value="Salvar">
+                        </div>
+                </form>
+                    <div class="col-md-6-botoes">
+                        <form action="/logoff" method="post">  
+                            <input class="botaovoltar" type="button" value="Voltar">
+                        </form>
+                    </div>
                 </div>
-              </div>
             </div> <!--FIM FEED-->
-            
-            <div class="col-md-3-side-right"> <!--INICIO MENU DIREITO-->
-                <%- include('./partials/friends_zone'); %>  
+
+
+            <div class="col-md-3-side-right"> <!--INICIO MENU DIREITO--> 
             </div>
         </div>
     </div>

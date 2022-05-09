@@ -1,0 +1,90 @@
+.col-md-3-side-left{
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+.info-user-area {
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.edit-image{
+	display: flex;
+	margin-bottom:15px;
+	margin-top:25px;
+}
+
+.info-user-area-edit img {
+    width: 30%;
+}
+
+.img-profile{
+	display: flex;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top:25px;
+	margin-bottom:15px;
+	border-radius:40px;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2)
+}
+
+.menu-info-user,.menu-educacao,.menu-work{
+	margin-top:25px;
+}
+
+input[type ='file']{
+    display: none;
+}
+
+img#imgPhoto {
+	width: 40px;
+	margin-top: 210px;
+	margin-left: -315px;
+}
+
+.info-user-area-edit p{
+	font-weight: bold;
+	margin: 5px;
+}
+.nome-user-edit, .info-user-edit{
+	color: #4F515D;
+    margin-bottom: 10px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #F0F0F0;
+}
+
+input.botaoredefinir, .botaovoltar{
+    width: 150px;
+    height: 30px;
+    border-radius: 30PX;
+    margin-top: -35px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+input.botaovoltar{
+    background-color: #D62A76;
+}
+
+input.botaoredefinir{
+    background-color: #42C16C;
+}
+
+input.botaoredefinir:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
+}
+
+input.botaovoltar:hover{
+    background-color: #A8518A;
+    transition: all 0.3s linear;
+}
+
+.col-md-6-botoes {
+	margin-top: 35px;
+    margin-left: 150px;
+}
