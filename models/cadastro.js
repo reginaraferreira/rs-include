@@ -20,9 +20,6 @@ const Cadastro = db.sequelize.define('cadastro', {
         type: db.Sequelize.STRING,
         allowNull:false
     },
-    nascimento: {
-        type: db.Sequelize.STRING
-    },
     estado: {
         type: db.Sequelize.STRING,
         allowNull:false
@@ -44,7 +41,8 @@ const Cadastro = db.sequelize.define('cadastro', {
         allowNull:false
     },
     escolaridade: {
-        type: db.Sequelize.STRING
+        type: db.Sequelize.STRING,
+        allowNull:true
     },
     instituicao:{
         type: db.Sequelize.STRING
@@ -54,6 +52,15 @@ const Cadastro = db.sequelize.define('cadastro', {
     },
     cargo:{
         type: db.Sequelize.STRING
+    },
+    dianascimento: {
+        type: db.Sequelize.INTEGER
+    },
+    mesnascimento: {
+        type: db.Sequelize.INTEGER
+    },
+    anonascimento: {
+        type: db.Sequelize.INTEGER
     }
 
 })

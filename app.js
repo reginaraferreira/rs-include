@@ -17,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 
+var secretKey = 'INCLUD3R3DES0C14L134G0ST02022';
 var salt = bcrypt.genSaltSync(10);
+var id = "1";
 
 
 app.get('/', function(req, res, next){
@@ -36,12 +38,17 @@ app.get('/feed_noticias', eAdmin, function(req, res){
     res.render('feed_noticias');
 });
 
-app.get('/perfil', async (req, res) => {
-    res.render('perfil');
+app.get('/perfil', eAdmin, async (req, res, next) => {
+    res.render('perfil', { auth: true, token: token });
 });
 
-app.get('/editar_perfil', eAdmin, function(req, res){
-    res.render('editar_perfil');
+app.get('/editar_perfil', eAdmin, async (req, res) => {
+    await Cadastro.findOne({ where: { id: id } 
+   }).then(function(cadastros){
+        console.log(cadastros);
+        res.render('editar_perfil', {cadastros:cadastros});
+    })
+    
 });
 
 app.get('/amigos', eAdmin, function(req, res){
@@ -84,19 +91,40 @@ app.post('/login', async (req, res) => {
     //dadosUser.senha = await bcrypt.hash(dadosUser.senha, salt);
     
     if(!(await bcrypt.compare(req.body.password, user.senha))){
+        
         return res.render('login', { message:"Usuário e/ou senha incorretos!"});
-    } else {
-        res.render('feed_noticias');
-        token;
-    }
-    var token = jwt.sign({id: user.id}, "INCLUD3R3DES0C14L134G0ST02022", {
+    };
+
+    var token = jwt.sign({id: user.id}, secretKey, {
         //expiresIn: 600 //10 min
         //expiresIn: 60 //1 min
         expiresIn: '7d' // 7 dia
     });
     console.log(token);
+    return res.render('feed_noticias', { auth: true, token: token });
+   // res.status(200).send({ auth: true, token: token }); 
+    
 
 });
+
+app.post('/atualizar-perfil', async (req, res) => {
+    var dadosUser = req.body;
+    const user = await Cadastro.findByPk(id);
+    
+    user.nome = dadosUser.nome;
+    user.sobrenome = dadosUser.sobrenome;
+    user.estado = dadosUser.estado;
+    user.cidade = dadosUser.cidade;
+    user.escolaridade = dadosUser.escolaridade;
+    user.instituicao = dadosUser.instituicao;
+    user.empresa = dadosUser.empresa;
+    user.cargo = dadosUser.cargo;
+    user.dianascimento = dadosUser.dianascimento;
+    user.mesnascimento = dadosUser.mesnascimento;
+    user.anonascimento = dadosUser.anonascimento;
+
+    await user.save();
+ });
 
 app.listen(port,() => {
     console.log(`Servidor rodando em: http://localhost:${port}`);

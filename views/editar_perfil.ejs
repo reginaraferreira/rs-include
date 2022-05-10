@@ -14,19 +14,19 @@
         
             <div class="col-md-6-feed"> <!--INICIO FEED-->
                 <div class="info-user-area-edit">
-                    <form action="/editar-perfil" method="post">
+                    <form action="/atualizar-perfil" method="post">
                         <div class="row">
-                            <img src="static/img/perfil1.png" class="img-profile" type="button">
-                            <label for="imagemPhoto"><img src="static/img/camera.png" id="imgPhoto"></label>
+                            <img src="static/img/upload.png" class="img-profile" type="button">
+                            <label for="imagemPhoto"><img src="static/img/mais_icone.png" id="imgPhoto"></label>
                             <input type="file" id="avatar-profile" name="img-profile" accept="image/*">
                         </div>
                         <div class="menu-info-user">
                             <div class="row">
                                 <div class="col-md-7">
-                                    <p>Nome: </p><input class="nome-user-edit" type="text" value="Novo Teste">
+                                    <p>Nome: </p><input class="nome-user-edit" type="text" name="nome" value= <%=cadastros.nome %>>
                                 </div>
                                 <div class="col-md-5">
-                                    <p>Sobrenome: </p><input class="info-user-edit" type="text" value="Ferreira">
+                                    <p>Sobrenome: </p><input class="info-user-edit" type="text" name="sobrenome" value=  <%=cadastros.sobrenome %>>
                                 </div>
                             </div>
                             <div class="row">
@@ -34,21 +34,21 @@
                                         <p>Data de Nascimento: </p>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="info-user-edit" type="text" value="Dia">
+                                        <input class="info-user-edit" type="text" name="dianascimento" value= <%=cadastros.dianascimento %>>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="info-user-edit" type="text" value="Mês">
+                                        <input class="info-user-edit" type="text" name="mesnascimento" value= <%=cadastros.mesnascimento %>>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="info-user-edit" type="text" value="Ano">
+                                        <input class="info-user-edit" type="text" name="anonascimento" value= <%=cadastros.anonascimento %>>
                                     </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p>Estado: </p><input class="info-user-edit" type="text" value="Rio Grande do Sul">
+                                    <p>Estado: </p><input class="info-user-edit" type="text" name="estado" value= <%=cadastros.estado %>>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Cidade: </p><input class="info-user-edit" type="text" value="Caxias do Sul">
+                                    <p>Cidade: </p><input class="info-user-edit" type="text" name="cidade" value= <%=cadastros.cidade%>>
                                 </div>
                             </div>
                         </div>
@@ -56,10 +56,10 @@
                         <h5>Educação</h5>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p>Escolaridade: </p><input class="info-user-edit" type="text" value="">
+                                    <p>Escolaridade: </p><input class="info-user-edit" type="text" name="escolaridade" value= <%=cadastros.escolaridade %>>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Instituição: </p><input class="info-user-edit" type="text" value="UNIFTEC">
+                                    <p>Instituição: </p><input class="info-user-edit" type="text" name="instituicao" value= <%=cadastros.instituicao %>>
                                 </div>
                             </div>
                         </div>
@@ -67,10 +67,10 @@
                             <h5>Trabalho</h5>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <p>Empresa: </p><input class="info-user-edit" type="text" value="">
+                                    <p>Empresa: </p><input class="info-user-edit" type="text" name="empresa" value= <%=cadastros.empresa %>>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Cargo Atual: </p><input class="info-user-edit" type="text" value="Estudante">
+                                    <p>Cargo Atual: </p><input class="info-user-edit" type="text" name="cargo" value= <%=cadastros.cargo %>>
                                 </div>
                             </div>
                         </div>
