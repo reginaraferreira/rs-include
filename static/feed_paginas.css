@@ -38,3 +38,26 @@
 
 /*-------------- FIM FEED --------------*/
 
+.button-side{
+	display:inline-grid;
+	margin-top: 35px;
+	margin-left: 120px;
+}
+
+.button-side input{
+	width: 135px;
+    height: 31px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    border-style: none;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-settings{
+	margin-top:50px;
+}
+
+input.button-page {
+    background: #4285F4;
+    color: #fff;
+}

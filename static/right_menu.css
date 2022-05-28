@@ -10,9 +10,25 @@
 	margin-bottom: 15px;
 }
 
+.vagas-zone{
+	border-bottom: 1px solid #C4C4C4;
+	margin-bottom: 15px;
+	height: 250px;
+}
+
 .friends-zone h5{
 	margin-bottom:15px;
 	font-weight: bold;
+}
+
+.vagas-zone h5{
+	margin-bottom:15px;
+	font-weight: bold;
+}
+
+p.text-vagas {
+    margin-top: 75px;
+    text-align: center;
 }
 
 img.img-friends{

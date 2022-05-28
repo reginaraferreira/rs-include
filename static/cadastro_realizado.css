@@ -49,6 +49,7 @@ input.botaoredefinir, .botaovoltar{
     margin-bottom: 15px;
     text-transform: uppercase;
     color: #fff;
+    border: none;
 }
 
 input.botaovoltar{

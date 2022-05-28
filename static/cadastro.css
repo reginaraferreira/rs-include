@@ -22,22 +22,10 @@ body {
     height: 50px;
 }
 
-button.botaocriarconta{
-    display: inline-block;
-    float: right;
-    width: 150px;
-    height: 30px;
-    background-color: #42C16C;
-    border-radius: 30PX;
-    margin-top: -35px;
+.msg-alert{
+    color: red;
+    margin-left: 15px;
     margin-bottom: 15px;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-button.botaocriarconta:hover{
-    background-color: #48887B;
-    transition: all 0.3s linear;
 }
 
 .area-cadastro h5, h6{
@@ -50,7 +38,7 @@ button.botaocriarconta:hover{
 }
 
 input.input-text-cadastro1{
-    width: 307px;
+    width: 100%;
     height: 40px;
     border: none;
     border-radius: 15px;
@@ -67,6 +55,21 @@ input.input-text-cadastro2{
     margin-bottom: 15px;
     text-indent: 10px;
     background: #C4C4C4;
+}
+
+select.select-text-cadastro1, .select-text-cadastro2{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    text-indent: 10px;
+    background: #C4C4C4;
+}
+
+label.estado, .cidade{
+    color: #fff;
+    display: block;
 }
 
 #dia{
@@ -111,6 +114,25 @@ label.termosdeuso{
 
 fieldset{
     border: none;
+}
+
+button.botaocriarconta{
+    display: inline-block;
+    float: right;
+    width: 150px;
+    height: 30px;
+    background-color: #42C16C;
+    border-radius: 30PX;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+}
+
+button.botaocriarconta:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
 }
 
 @media (max-width:991px){

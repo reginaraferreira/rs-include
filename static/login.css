@@ -89,6 +89,7 @@ input.buttonlogin{
     margin-bottom: 15px;
     text-transform: uppercase;
     color: #fff;
+    border: none;
 }
 
 input.buttonlogin:hover{

@@ -15,35 +15,57 @@
          <!--fim espaçamento inicial/final-->
 
         <div class="area-cadastro">
-            <div class="row">
-                <form action="/cadastro-realizado" method="POST">
-                    <div class="col-md-12">
-                            <h5>Cadastre-se</h5>
-                                <input class="input-text-cadastro1" type="text" name="nome" placeholder="Nome">    
+                <form action="/cadastro-realizado" method="POST" name="formcadastro">
+                    <h5>Cadastre-se</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                                <input class="input-text-cadastro1" type="text" name="nome" id="nome" placeholder="Nome">    
+                        </div>
+                        <div class="col-md-6">
                                 <input class="input-text-cadastro1" type="text" name="sobrenome" placeholder="Sobrenome">
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                            <input class="input-text-cadastro2" type="text" name="email" placeholder="Email">       
+                    <div class="row">
+                        <div class="col-md-12">
+                                <input class="input-text-cadastro2" type="text" name="email" placeholder="Email">       
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <input class="input-text-cadastro1" type="text" name="estado" placeholder="Estado">
-                        <input class="input-text-cadastro1" type="text" name="cidade" placeholder="Cidade">       
+                    <div class="row">
+                        <div class="col-md-6">
+                                <label class="estado">Estado</label>
+                                <select class="select-text-cadastro1" id="uf" name="estado">
+                                    <option></option>
+                                </select>
+                        </div>
+                        <div class="col-md-6">
+                                <label  class="cidade">Cidade</label>
+                                <select class="select-text-cadastro2" id="cidade" name="cidade">
+                                    <option></option>
+                                </select>
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <input class="input-text-cadastro2" type="password" name="senha" placeholder="Senha">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input class="input-text-cadastro2" type="password" name="senha" placeholder="Senha">
+                        </div>
+                        <div class="col-md-6">
+                            <input class="input-text-cadastro2" type="password" name="confsenha" placeholder="Confirmar Senha">
+                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <input class="input-text-cadastro2" type="password" name="confsenha" placeholder="Confirmar Senha">
+                    <div class="row">
+                        <span id="msg-error"></span>
                     </div>
-                    <div class="col-md-6">
-                        <input type="checkbox" id="termos">
-                        <label class="termosdeuso" for="termos">Declaro que li e concordo com os <a href="https://www.google.com/">Termos de Uso</a> e <a href="https://www.google.com/">Políticas de Privacidade</a></label>
-                    </div>
-                    <div class="col-md-12">
-                        <button class="botaocriarconta" type="submit">Criar Conta</button>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input type="checkbox" id="termosdeuso">
+                            <label class="termosdeuso"  for="termos">Declaro que li e concordo com os <a href="https://www.google.com/">Termos de Uso</a> e <a href="https://www.google.com/">Políticas de Privacidade</a></label>
+                        </div>
+                        <div class="col-md-6" >
+                            <button class="botaocriarconta" type="submit">Criar Conta</button>
+                        </div>
                     </div>
                 </form>
-            </div>
+            
         </div>
          <!--espaçamento inicial/final-->
         <div class="row">
@@ -53,6 +75,7 @@
         </div>
          <!--fim espaçamento inicial/final-->
     </div>
+<script src="/scripts/select_cadastro.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>

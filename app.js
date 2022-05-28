@@ -2,16 +2,17 @@ const express = require("express");
 const app = express();
 const port = 8080;
 
-
 const bodyParser = require("body-parser");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const { eAdmin } = require('./models/auth');
 const Cadastro = require("./models/cadastro");
+const CadastroPagina = require("./models/cadastroPagina");
+const CadastroVaga = require("./models/cadastrarVaga");
 
 app.set('view engine', 'ejs');
 app.use("/static", express.static('static'));
+app.use("/scripts", express.static('scripts'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -19,40 +20,79 @@ app.use(express.json());
 
 var secretKey = 'INCLUD3R3DES0C14L134G0ST02022';
 var salt = bcrypt.genSaltSync(10);
-var id = "1";
-
 
 app.get('/', function(req, res, next){
     res.render('login', { message: null });
 });
 
 app.get('/cadastro', function(req, res){
-    res.render('cadastro');
+    res.render('cadastro', { message: null });
 });
 
 app.get('/esqueci_senha', function(req, res){
     res.render('esqueci_senha');
 });
 
-app.get('/feed_noticias', eAdmin, function(req, res){
-    res.render('feed_noticias');
+app.get('/pagina', function(req, res){
+    res.render('feed_paginas');
 });
 
-app.get('/perfil', eAdmin, async (req, res, next) => {
-    res.render('perfil', { auth: true, token: token });
+app.get('/incluir_vaga', function(req, res){
+    res.render('incluir_vaga');
 });
 
-app.get('/editar_perfil', eAdmin, async (req, res) => {
-    await Cadastro.findOne({ where: { id: id } 
+//app.get('/feed-noticias', verifyJWT, async (req, res, next) =>{
+    /*console.log(res);
+    const user = await Cadastro.findOne({ where: { id: req.userId } 
+    }).then(function(cadastros){
+         //console.log(cadastros);
+         res.render('feed-noticias', {cadastros:cadastros});
+     })*/
+//});
+
+
+app.get('/perfil', verifyJWT,  async (req, res, next) => {
+    console.log("testereq" + req.userId);
+    await Cadastro.findOne({ where: { id: req.userId } 
+    }).then(function(cadastros){
+       //  console.log(cadastros);
+         res.render('perfil', {cadastros:cadastros});
+     })
+    //res.render('perfil', { auth: true, token: token });
+});
+
+app.get('/editar_perfil', verifyJWT, async (req, res) => {
+    await Cadastro.findOne({ where: { id: req.userId } 
    }).then(function(cadastros){
-        console.log(cadastros);
+      //  console.log(cadastros);
         res.render('editar_perfil', {cadastros:cadastros});
     })
     
 });
 
-app.get('/amigos', eAdmin, function(req, res){
+app.get('/minhas_paginas', async (req, res) => {
+    await CadastroPagina.findAll({ 
+   }).then(function(cadastrosPaginas){
+      //  console.log(cadastros);
+        res.render('minhas_paginas', {cadastrosPaginas:cadastrosPaginas});
+    })
+});
+
+app.get('/minhas_vagas_user', async (req, res) => {
+  /* await CadastroPagina.findAll({ 
+   }).then(function(cadastrosPaginas){
+      //  console.log(cadastros);
+        res.render('minhas_paginas', {cadastrosPaginas:cadastrosPaginas});
+    })*/
+    res.render('minhas_vagas_user');
+});
+
+app.get('/amigos', function(req, res){
     res.render('amigos');
+});
+
+app.get('/criar_pagina', function(req, res){
+    res.render('criar_pagina');
 });
 
 app.post('/cadastro-realizado', async (req, res) => {
@@ -72,16 +112,62 @@ app.post('/cadastro-realizado', async (req, res) => {
      })
  });
 
-
-app.post('/login', async (req, res) => {
-    //console.log(req.body);
+ app.post('/login', async (req, res, next) => { //autenticação
     const user = await Cadastro.findOne({
         attributes: ['id', 'email', 'senha'],
         where: {
             email: req.body.email
         }
     })
+    if (user === null) {
+        console.log("email incorreto");
+        return res.render('login', { message:"Usuário e/ou senha incorretos!"});
+    };
+    if(!(await bcrypt.compare(req.body.password, user.senha))){
+        
+        return res.render('login', { message:"Usuário e/ou senha incorretos!"});
+    } else {
+        const id = user.id;
+        const token = jwt.sign({id}, secretKey, {
+            expiresIn: '7d' // 7 dia
+        });
+        console.log(token);
+        return res.render('feed_noticias', {auth: {token: token}});
+        //res.status(200).send({ auth: true, token: token }); 
+    }
+});
 
+
+function verifyJWT(req, res, next){ //autorização
+    //const token = req.get('my_auth_token');
+   // const token = req.headers['token'];
+   const token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUzNjk0NTA5LCJleHAiOjE2NTQyOTkzMDl9.UAmdykP-MLwLjzZenNFgLn119GRWoBGlXZk1tIAZjkg';
+    if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
+    
+    jwt.verify(token, secretKey, function(err, decoded) {
+      if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
+      
+      // se tudo estiver ok, salva no request para uso posterior
+      //req.userId = decoded.id;
+      //console.log("User Id: " + decoded.id)
+      res.locals.authenticated = true; // <<<
+        res.locals.user = decoded.user;  
+      next();
+    });
+}
+
+app.post('/logout', function(req, res) {
+    return res.render('/', { auth: false, token: null });
+});
+
+
+/*app.post('/login', async (req, res) => {
+    const user = await Cadastro.findOne({
+        attributes: ['id', 'email', 'senha'],
+        where: {
+            email: req.body.email
+        }
+    })
     if (user === null) {
         console.log("email incorreto");
         return res.render('login', { message:"Usuário e/ou senha incorretos!"});
@@ -93,19 +179,16 @@ app.post('/login', async (req, res) => {
     if(!(await bcrypt.compare(req.body.password, user.senha))){
         
         return res.render('login', { message:"Usuário e/ou senha incorretos!"});
-    };
+    } else {
 
-    var token = jwt.sign({id: user.id}, secretKey, {
-        //expiresIn: 600 //10 min
-        //expiresIn: 60 //1 min
-        expiresIn: '7d' // 7 dia
-    });
-    console.log(token);
-    return res.render('feed_noticias', { auth: true, token: token });
-   // res.status(200).send({ auth: true, token: token }); 
-    
-
-});
+        const token = jwt.sign({id: user.id}, secretKey, {
+            expiresIn: '7d' // 7 dia
+        });
+        console.log(token);
+        return res.render('feed_noticias', { auth: true, token: token, id: user.id});
+        // res.status(200).send({ auth: true, token: token }); 
+}
+});*/
 
 app.post('/atualizar-perfil', async (req, res) => {
     var dadosUser = req.body;
@@ -124,6 +207,40 @@ app.post('/atualizar-perfil', async (req, res) => {
     user.anonascimento = dadosUser.anonascimento;
 
     await user.save();
+
+    res.render('perfil');
+ });
+
+ app.post('/cadastroPagina-realizado', async (req, res) => {
+    var dadosPagina = req.body;
+    //dadosUser.senha = await bcrypt.hash(dadosUser.senha, salt);
+    await CadastroPagina.create(dadosPagina)
+     .then(() => {
+         res.render('minhas_paginas');
+         //res.send("Cadastro realizado com sucesso!")
+     }).catch(() => {
+         //res.send("Erro: Cadastrado não foi realizado com sucesso!" + erro)
+         return res.status(400).json({
+            erro: true,
+            mensagem: "Erro: Página não cadastrado com sucesso!"
+        });
+     })
+ });
+
+ app.post('/CadastroVaga-realizado', async (req, res) => {
+    var dadosVaga = req.body;
+    //dadosUser.senha = await bcrypt.hash(dadosUser.senha, salt);
+    await CadastroVaga.create(dadosVaga)
+     .then(() => {
+         res.render('minhas_paginas');
+         //res.send("Cadastro realizado com sucesso!")
+     }).catch(() => {
+         //res.send("Erro: Cadastrado não foi realizado com sucesso!" + erro)
+         return res.status(400).json({
+            erro: true,
+            mensagem: "Erro: Página não cadastrado com sucesso!"
+        });
+     })
  });
 
 app.listen(port,() => {

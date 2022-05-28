@@ -1,0 +1,54 @@
+<!doctype html>
+<head>
+    <%- include('./partials/head'); %>
+    <title>Minhas Páginas</title>
+    <link rel="stylesheet" type="text/css" href="/static/feed.css">
+    <link rel="stylesheet" type="text/css" href="/static/minhas_paginas.css">
+</head>
+<body>
+	<%- include('./partials/menu'); %>
+    <div class="body-feed">
+        <div class="row-feed">
+            <div class="col-md-3-side-left"> <!--INICIO MENU ESQUERDO-->
+                <%- include('./partials/user_area'); %>
+                <a href="http://localhost:8080/criar_pagina">
+                    <input class="botaocriarpagina" type="button" value="Criar Página">
+                </a>
+            </div><!--FIM MENU ESQUERDO-->
+            <div class="col-md-6-feed"> <!--INICIO FEED-->
+              <div class="head-feed">
+                    <div class="pages-updates-zone">
+                        <%- include('./partials/search'); %>
+                        <p class="titulo-pagina">Minhas Páginas</p>
+                        <!--
+                        <p class="paragrafo-pages">Você ainda não criou nenhuma página. Clique no botão abaixo para começar.</p>
+                        <a href="http://localhost:8080/criar_pagina">
+                            <input class="botaocriarpagina" type="button" value="Criar Página">
+                        </a>
+                    -->
+                  
+                        <ul class="tipo-pagina">
+                            <% cadastrosPaginas.forEach(function(cadastrosPaginas) { %>
+                                <li class="tipo-pagina">
+                                    <p class="nome-pages"><%= cadastrosPaginas.titulo %></p>
+                                    <%= cadastrosPaginas.tipo %>
+                                    <input class="botaovisitarpagina" type="button" value="Visitar">
+                                </li>
+                            <% }); %>
+                        </ul>
+                 
+
+
+
+                    </div>
+              </div>
+            </div> <!--FIM FEED-->
+            <div class="col-md-3-side-right"> <!--INICIO MENU DIREITO-->
+             
+            </div><!--FIM MENU DIREITO-->
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+.pages-updates-zone{
+	background-color: #F0F0F0;
+	border-radius: 10px;
+	margin-top:15px;
+	height:auto;
+}
+
+.nome-pages-menu {
+    color: #4F515D;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 60px;
+    font-size: 20px;  
+    margin-top: 25px;  
+}
+
+.botaocriarpagina{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    width: 150px;
+    height: 30px;
+    background-color: #42C16C;
+    border-radius: 30PX;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+}
+
+.botaocriarpagina:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
+}
+
+.paragrafo-pages{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    width: 45%;
+    text-align: center;
+}
+
+.title-main-text-pages {
+    margin: 15px;
+    padding-top: 25px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.row-tipo-pagina{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+input.botaotipopagina {
+    width: 190px;
+    height: 30px;
+    background-color: #4285F4;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+}
+
+.nome-user-edit, .info-page-edit{
+	color: #4F515D;
+    margin-bottom: 10px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #FFF;
+}
+
+.menu-about-page{
+	margin: 15px;
+}
+
+.row-select {
+    display: flex;
+    margin-top: 10px;
+}
+
+p.nome-select-page {
+    font-size: 17px;
+}
+
+.menu-about-page h6{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 19px;
+}
+
+input.botaoredefinir, .botaovoltar{
+    width: 150px;
+    height: 30px;
+    border-radius: 30PX;
+    margin-top: -35px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+}
+
+input.botaovoltar{
+    background-color: #D62A76;
+}
+
+input.botaoredefinir{
+    background-color: #42C16C;
+}
+
+input.botaoredefinir:hover{
+    background-color: #48887B;
+    transition: all 0.3s linear;
+}
+
+input.botaovoltar:hover{
+    background-color: #A8518A;
+    transition: all 0.3s linear;
+}
+
+.col-md-6-botoes {
+	margin-top: 35px;
+    margin-left: 150px;
+}
+
+.menu-info-basica {
+    margin-top: 30px;
+}

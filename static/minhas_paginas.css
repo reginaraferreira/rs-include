@@ -1,0 +1,92 @@
+.pages-updates-zone{
+	background-color: #F0F0F0;
+	border-radius: 10px;
+	margin-top:15px;
+	height:600px;
+}
+
+.titulo-pagina {
+    color: #4F515D;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 50px;
+    font-size: 20px;    
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.titulo-pagina {
+    color: #4F515D;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 50px;
+    font-size: 20px;    
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.nome-pages {
+    color: #4F515D;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.botaocriarpagina{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    width: 150px;
+    height: 30px;
+    background-color: #4285F4;
+    border-radius: 30PX;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+}
+
+.botaocriarpagina:hover{
+    background-color: #3E4095;
+    transition: all 0.3s linear;
+}
+
+.paragrafo-pages{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    width: 45%;
+    text-align: center;
+}
+
+ul.tipo-pagina {
+    margin-left: 50px;
+}
+
+li.tipo-pagina {
+    display: inline-block;
+    text-align: center;
+    margin: 15px;
+}
+
+.botaovisitarpagina {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 120px;
+    height: 30px;
+    background-color: #4285F4;
+    border-radius: 30PX;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+}
+
+.back-diferente {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+}
