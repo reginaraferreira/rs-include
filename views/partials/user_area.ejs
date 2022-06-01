@@ -3,6 +3,6 @@
 </head>
    <a href="http://localhost:8080/perfil">
         <img src="static/img/perfil1.png" class="img-profile" type="button">
-        <p class="nome-user">Usuário Teste</p>
+        <p class="nome-user"><%=user.nome %><%=user.sobrenome %></p>
     </a>
-    <p class="info-user">estudante, escola Santa Catarina, Caxias do Sul, Brasil</p>
+    <p class="info-user"><%=user.cargo %>, <%=user.instituicao %>, <%=user.cidade %></p>

@@ -62,17 +62,28 @@
 											</div>
 										</div>
 										<div class="row-select">
-											<div class="col-md-4">
-												<p class="nome-select-page">Cidade de atuação: </p>
-											</div>
-											<div class="col-md-8">
-												<select class="info-page-edit" name="cidade">
-													<option value="CaxiasdoSul">Caxias do Sul</option>
-													<option value="PortoAlegre">Porto Alegre</option>
-													<option value="Farroupilha">Farroupilha</option>
-												</select>
+											<div class="col-md-12">
+												<p class="nome-select-page">Local de atuação:</p>
 											</div>
 										</div>
+										<div class="row-select">
+											
+											<div class="col-md-2">
+												<p class="nome-select-page">Estado: </p>
+											</div>
+											<div class="col-md-4">
+                                				<select class="info-page-edit" id="uf" name="estado">
+                                    				<option></option>
+                                				</select>
+											</div>
+											<div class="col-md-2">
+												<p class="nome-select-page">Cidade: </p>
+											</div>
+											<div class="col-md-4">
+												<select class="info-page-edit" id="cidade" name="cidade">
+													<option></option>
+												</select>
+											</div>
 										</div>
 						</div>	
 
@@ -99,5 +110,6 @@
     </div>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/scripts/select_estados_cidades.js"></script>
 </body>
 </html>

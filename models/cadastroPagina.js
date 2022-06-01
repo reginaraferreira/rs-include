@@ -1,4 +1,5 @@
-const db = require('./db')
+const db = require('./db');
+//const cadastro = models.cadastro;
 
 const CadastroPagina = db.sequelize.define('cadastroPagina', {
     id: {
@@ -7,21 +8,9 @@ const CadastroPagina = db.sequelize.define('cadastroPagina', {
         allowNull: false,
         primaryKey: true
     },
-    //idUser:{
-    //    type: db.Sequelize.INTEGER,
-    //    allowNull: false,
-        //references: {         // User belongsTo Company 1:1
-        //  model: 'Companies', //REVISAR COMPANHIES SE ESTÁ CORRETO
-        //  key: 'id'
-   // },
     titulo: {
         type: db.Sequelize.STRING,
         allowNull:false,
-        validate: { 
-            notEmpty: {
-                msg: "Esse campo não pode ser vazio"
-            },
-        }
     },
     descricao: {
         type: db.Sequelize.STRING,
@@ -42,8 +31,17 @@ const CadastroPagina = db.sequelize.define('cadastroPagina', {
     cidade: {
         type: db.Sequelize.STRING,
         allowNull:false
-    }
+    },
+    cadastro_id: {
+        type: db.Sequelize.INTEGER,
+        foreignKey: true}
 })
+
+CadastroPagina.associate = (models) => {
+    CadastroPagina.belongsTo(models.Cadastro,
+    { foreignKey: 'cadastro_id', as: 'cadastro' });
+};
+
 
 //Criar a tabela
 //CadastroPagina.sync({force: true})

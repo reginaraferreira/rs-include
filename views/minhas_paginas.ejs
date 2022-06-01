@@ -26,20 +26,17 @@
                             <input class="botaocriarpagina" type="button" value="Criar Página">
                         </a>
                     -->
-                  
                         <ul class="tipo-pagina">
                             <% cadastrosPaginas.forEach(function(cadastrosPaginas) { %>
                                 <li class="tipo-pagina">
                                     <p class="nome-pages"><%= cadastrosPaginas.titulo %></p>
                                     <%= cadastrosPaginas.tipo %>
-                                    <input class="botaovisitarpagina" type="button" value="Visitar">
+                                    <a href="http://localhost:8080/pagina/<%= cadastrosPaginas.id%>">
+                                        <input class="botaovisitarpagina" type="button" value="Visitar">
+                                    </a>
                                 </li>
                             <% }); %>
                         </ul>
-                 
-
-
-
                     </div>
               </div>
             </div> <!--FIM FEED-->

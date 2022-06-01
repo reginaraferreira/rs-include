@@ -58,6 +58,7 @@
 											</div>
 											<div class="col-md-9">
 												<select class="info-page-edit" name="categoria">
+													<option></option>
 													<option value="Alimentos">Alimentos e Bebidas</option>
 													<option value="TI">Tecnologia e Informação</option>
 													<option value="Telecom">Telecomunicações</option>
@@ -72,6 +73,7 @@
 											</div>
 											<div class="col-md-9">
 												<select class="info-page-edit" name="tipo">
+													<option></option>
 													<option value="Privada">Empresa Privada</option>
 													<option value="Publica">Empresa Pública</option>
 													<option value="Instituicao">Instituição de Ensino</option>
@@ -85,19 +87,16 @@
 												<p class="nome-select-page">Estado: </p>
 											</div>
 											<div class="col-md-4">
-												<select class="info-page-edit" name="estado">
-													<option value="RioGrandedoSul">Rio Grande do Sul</option>
-													<option value="SantaCatarina">Santa Catarina</option>
-												</select>
+                                				<select class="info-page-edit" id="uf" name="estado">
+                                    				<option></option>
+                                				</select>
 											</div>
 											<div class="col-md-2">
 												<p class="nome-select-page">Cidade: </p>
 											</div>
 											<div class="col-md-4">
-												<select class="info-page-edit" name="cidade">
-													<option value="CaxiasdoSul">Caxias do Sul</option>
-													<option value="PortoAlegre">Porto Alegre</option>
-													<option value="Farroupilha">Farroupilha</option>
+												<select class="info-page-edit" id="cidade" name="cidade">
+													<option></option>
 												</select>
 											</div>
 										</div>
@@ -126,5 +125,6 @@
     </div>
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/scripts/validacoes_cadastrovaga.js"></script>
 </body>
 </html>

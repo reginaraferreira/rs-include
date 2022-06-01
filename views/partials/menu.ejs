@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-3">
             <a href="http://localhost:8080/feed_noticias">
-                <img src="static/img/logo.png" class="logo-header" type="button">
+                <img src="/static/img/logo.png" class="logo-header" type="button">
             </a>
             <div class="area-login-user">
                 <p>Bem-vindo,</p>
@@ -14,13 +14,13 @@
         <div class="col-md-6-icons">
                 <div class="icon-house">
                     <a href="http://localhost:8080/feed_noticias">
-                        <img src="static/img/house.png">
+                        <img src="/static/img/house.png">
                         <p>Inicio</p>
                     </a>
                 </div>
                 <div class="icon-friends">
                     <a href="http://localhost:8080/amigos">
-                        <img src="static/img/amigos.png">
+                        <img src="/static/img/amigos.png">
                         <p>Amigos</p>
                     </a>
                 </div>
@@ -33,14 +33,16 @@
         </div>
         <div class="col-md-3-icons">
             <div class="icon-notifications">
-                <img src="static/img/notificacao.png">
+                <img src="/static/img/notificacao.png">
                 <p>Notificacao</p>
             </div>
             <div class="icon-exit">
-                <a href="http://localhost:8080/">
-                <img src="static/img/sair.png">
-                <p>Sair</p>
-                </a>
+                <form action="/logout" method="POST">
+                    <button type="submit" class="exit">
+                        <img src="/static/img/sair.png">
+                    </button>
+                    <p>Sair</p>
+                </form>   
             </div> 
         </div>
     </div>

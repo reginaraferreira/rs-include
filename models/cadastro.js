@@ -1,4 +1,5 @@
-const db = require('./db')
+const db = require('./db');
+//const CadastroPagina = require("./cadastroPagina");
 
 const Cadastro = db.sequelize.define('cadastro', {
     id: {
@@ -61,6 +62,10 @@ const Cadastro = db.sequelize.define('cadastro', {
 
 })
 
+Cadastro.associate = (models) => {
+    Cadastro.hasMany(models.cadastroPagina,
+    { foreignKey: 'paginaId', as: 'cadastroPagina' });
+};
 //Criar a tabela
 //Cadastro.sync({force: true})
 

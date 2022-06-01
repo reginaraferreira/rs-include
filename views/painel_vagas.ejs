@@ -25,30 +25,6 @@
                         <a href="http://localhost:8080/criar_pagina">
                             <input class="botaocriarpagina" type="button" value="Criar Página">
                         </a> -->
-                        <ul class="tipo-pagina">
-                            <p>Sugestões:</p>
-                            <% cadastroVagas.forEach(function(cadastroVagas) { %>
-                                <li class="tipo-pagina">
-                                    <p class="nome-pages"><%= cadastroVagas.titulo %></p>
-                                    <%= cadastroVagas.descricao %></p>
-                                    <a href="http://localhost:8080/pagina/<%= cadastroVagas.id%>">
-                                        <input class="botaovisitarpagina" type="button" value="Ver Mais">
-                                    </a>
-                                </li>
-                            <% }); %>
-                        </ul>
-                        <ul class="tipo-pagina">
-                            <p>Suas vagas:</p>
-                            <% cadastroVagas.forEach(function(cadastroVagas) { %>
-                                <li class="tipo-pagina">
-                                    <p class="nome-pages"><%= cadastroVagas.descricao %></p>
-                                    <%= cadastroVagas.tipo %>
-                                    <a href="http://localhost:8080/pagina/<%= cadastroVagas.id%>">
-                                        <input class="botaovisitarpagina" type="button" value="Detalhes">
-                                    </a>
-                                </li>
-                            <% }); %>
-                        </ul>
                     </div>
               </div>
             </div> <!--FIM FEED-->
