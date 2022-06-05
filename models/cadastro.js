@@ -64,7 +64,7 @@ const Cadastro = db.sequelize.define('cadastro', {
 
 Cadastro.associate = (models) => {
     Cadastro.hasMany(models.cadastroPagina,
-    { foreignKey: 'paginaId', as: 'cadastroPagina' });
+    { foreignKey: 'cadastro_id', as: 'cadastroPaginas' });
 };
 //Criar a tabela
 //Cadastro.sync({force: true})

@@ -18,15 +18,19 @@
             <div class="col-md-6-feed"> <!--INICIO FEED-->
               <div class="head-feed">
                     <div class="pages-updates-zone">
-                        <%- include('./partials/search'); %>
-                        <p class="titulo-pagina">Painel de Vagas</p>
+                       
+                             <%- include('./partials/search'); %>
+                       
+                        <div class="row">
+                            <p class="titulo-pagina">Painel de Vagas</p>
+                        </div>
                         <!--
                         <p class="paragrafo-pages">Você ainda não criou nenhuma página. Clique no botão abaixo para começar.</p>
                         <a href="http://localhost:8080/criar_pagina">
                             <input class="botaocriarpagina" type="button" value="Criar Página">
                         </a> -->
                         <ul class="tipo-pagina">
-                            <p>Sugestões:</p>
+                            <p>Suas Sugestões:</p>
                             <% cadastroVagas.forEach(function(cadastroVagas) { %>
                                 <li class="tipo-pagina">
                                     <p class="nome-pages"><%= cadastroVagas.titulo %></p>
@@ -41,8 +45,8 @@
                             <p>Suas vagas:</p>
                             <% cadastroVagas.forEach(function(cadastroVagas) { %>
                                 <li class="tipo-pagina">
-                                    <p class="nome-pages"><%= cadastroVagas.descricao %></p>
-                                    <%= cadastroVagas.tipo %>
+                                    <p class="nome-pages"><%= cadastroVagas.titulo %></p>
+                                    <%= cadastroVagas.descricao %>
                                     <a href="http://localhost:8080/pagina/<%= cadastroVagas.id%>">
                                         <input class="botaovisitarpagina" type="button" value="Detalhes">
                                     </a>

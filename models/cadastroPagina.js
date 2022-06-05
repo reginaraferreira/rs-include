@@ -39,7 +39,7 @@ const CadastroPagina = db.sequelize.define('cadastroPagina', {
 
 CadastroPagina.associate = (models) => {
     CadastroPagina.belongsTo(models.Cadastro,
-    { foreignKey: 'cadastro_id', as: 'cadastro' });
+    { foreignKey: 'user_id', as: 'cadastros' });
 };
 
 

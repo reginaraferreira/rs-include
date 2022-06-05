@@ -48,53 +48,41 @@ app.get('/feed_noticias', async (req, res, next) =>{
        //  console.log(cadastros);
          res.render('feed_noticias', {cadastrosPaginas:cadastrosPaginas});
      })
-
-
-
-
-
-   /* console.log(`user id: ${req.userId}`);
-   const user = await Cadastro.findOne({ where: { id: req.userId } })
-                               then(function(user){
-         res.render('feed_noticias', {user:user});
-   });*/
 });
 
 
-app.get('/perfil',  async (req, res, next) => {
-    const user = await CadastroPagina.findOne({
+app.get('/perfil', verifyJWT, async (req, res, next) => {
+    /*const user = await CadastroPagina.findOne({
         attributes: ['id', 'nome', 'sobrenome', 'cargo', 'instituicao', 'cidade'],
     }).then(function(user){
        //  console.log(cadastros);
          res.render('feed_noticias', {user:user});
-     })
-
-
-    /*.log("testereq" + req.userId);  //funciona com o token
+     })*/
     await Cadastro.findOne({ where: { id: req.userId } 
-    }).then(function(cadastros){
+    }).then(function(user){
        //  console.log(cadastros);
-         res.render('perfil', {cadastros:cadastros});
+         res.render('perfil', {user:user});
      })
     //res.render('perfil', { auth: true, token: token });*/
 });
 
-app.get('/editar_perfil', async (req, res) => {
-    const user = await CadastroPagina.findOne({
+app.get('/editar_perfil',verifyJWT, async (req, res) => {
+    /*const user = await CadastroPagina.findOne({
         attributes: ['id', 'nome', 'sobrenome', 'cargo', 'instituicao', 'cidade'],
     }).then(function(user){
        //  console.log(cadastros);
          res.render('feed_noticias', {user:user});
-     })
-    /*await Cadastro.findOne({ where: { id: req.userId }  //funciona com o token
-   }).then(function(cadastros){
+     })*/
+    await Cadastro.findOne({ where: { id: req.userId }
+   }).then(function(user){
       //  console.log(cadastros);
-        res.render('editar_perfil', {cadastros:cadastros});
-    })*/
+        res.render('editar_perfil', {user:user});
+    })
     
 });
 
-app.get('/minhas_paginas', async (req, res) => {
+app.get('/minhas_paginas',verifyJWT, async (req, res) => {
+    var user = req.userId;
     await CadastroPagina.findAll({ 
    }).then(function(cadastrosPaginas){
       //  console.log(cadastros);
@@ -112,10 +100,11 @@ app.get('/pagina/1', async (req, res) => {
 });
 
 app.get('/minhas_vagas_user', async (req, res) => {
+    var user = req.userId;
    await CadastroVaga.findAll({ 
    }).then(function(cadastroVagas){
       //  console.log(cadastros);
-        res.render('minhas_vagas_user', {cadastroVagas:cadastroVagas});
+        res.render('minhas_vagas_user', {cadastroVagas:cadastroVagas, user:user});
     })
    // res.render('minhas_vagas_user');
 });
@@ -128,7 +117,7 @@ app.get('/criar_pagina', function(req, res){
     res.render('criar_pagina');
 });
 
-app.post('/CadastroVaga-realizado', async (req, res) => {
+app.post('/minhas_paginas', async (req, res) => {
     var dadosVaga = req.body;
     //dadosUser.senha = await bcrypt.hash(dadosUser.senha, salt);
     await CadastroVaga.create(dadosVaga)
@@ -148,17 +137,46 @@ app.post('/cadastro-realizado', async (req, res) => {
     var dadosUser = req.body;
     dadosUser.senha = await bcrypt.hash(dadosUser.senha, salt);
 
-    await Cadastro.create(dadosUser)
-     .then(() => {
+    await Cadastro.create({
+        nome: req.body.nome,
+        sobrenome: req.body.sobrenome,
+        estado: req.body.estado,
+        cidade: req.body.cidade,
+        senha: req.body.senha,
+        email: req.body.email,
+        escolaridade: req.body.escolaridade,
+        instituicao: req.body.instituicao,
+        empresa: req.body.empresa,
+        cargo: req.body.cargo,
+        dianascimento: req.body.dianascimento,
+        mesnascimento: req.body.mesnascimento,
+        anonascimento: req.body.anonascimento},
+        {model:CadastroPagina, as: 'cadastroPaginas'}
+    ).then(() => {
          res.render('cadastro_realizado');
          //res.send("Cadastro realizado com sucesso!")
-     }).catch(() => {
+    }).catch(() => {
          //res.send("Erro: Cadastrado não foi realizado com sucesso!" + erro)
          return res.status(400).json({
             erro: true,
             mensagem: "Erro: Usuário não cadastrado com sucesso!"
         });
      })
+
+     /**
+      * 
+      *   try {
+        const cadastro = await Cadastro.findAll({
+          create: { model: cadastroPagina, as: 'cadastroPaginas' },
+        });
+    
+        return res.status(200).json(cadastro);
+      } catch (e) {
+        console.log(e.message);
+        res.status(500).json({ message: 'Ocorreu um erro' });
+      };
+      * 
+      */
 });
 
 app.post('/login', async (req, res, next) => { //autenticação
@@ -189,9 +207,9 @@ app.post('/login', async (req, res, next) => { //autenticação
 
 function verifyJWT(req, res, next){ //autorização
     //const token = req.get('my_auth_token');
-   const token = req.headers['token'];
-  // const token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUzNjk0NTA5LCJleHAiOjE2NTQyOTkzMDl9.UAmdykP-MLwLjzZenNFgLn119GRWoBGlXZk1tIAZjkg';
-    if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
+   //const token = req.headers['token'];
+  const token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU0MzkyNTQ1LCJleHAiOjE2NTQ5OTczNDV9.AgxqNIomp1oug2HKjedEmo-InFPyTmOAxfd2cZNdx50';
+  if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
     
     jwt.verify(token, secretKey, function(err, decoded) {
       if (err) return res.status(500).json({ auth: false, message: 'Failed to authenticate token.' });
@@ -205,9 +223,9 @@ function verifyJWT(req, res, next){ //autorização
     });
 }
 
-app.post('/atualizar-perfil', async (req, res) => {
+app.post('/atualizar-perfil', verifyJWT,async (req, res) => {
     var dadosUser = req.body;
-    const user = await Cadastro.findByPk(id);
+    const user = await Cadastro.findByPk(req.userId);
     
     user.nome = dadosUser.nome;
     user.sobrenome = dadosUser.sobrenome;
@@ -223,15 +241,22 @@ app.post('/atualizar-perfil', async (req, res) => {
 
     await user.save();
 
-    res.render('perfil');
+    res.render('perfil', {user:user});
 });
 
-app.post('/cadastroPagina-realizado', async (req, res) => {
-    var dadosPagina = req.body;
-    //dadosUser.senha = await bcrypt.hash(dadosUser.senha, salt);
-    await CadastroPagina.create(dadosPagina)
-     .then(() => {
-         res.render('minhas_paginas');
+app.post('/cadastroPagina-realizado',verifyJWT, async (req, res) => {
+    //var dadosPagina = req.body;
+    console.log(req.body.userId);
+    await CadastroPagina.create({
+        titulo: req.body.titulo,
+        descricao: req.body.descricao,
+        categoria: req.body.categoria,
+        tipo: req.body.tipo,
+        estado: req.body.estado,
+        cidade: req.body.cidade,
+        cadastro_id: req.userId
+    }).then(function(cadastrosPaginas){
+         res.render('minhas_paginas', {cadastrosPaginas:cadastrosPaginas});
          //res.send("Cadastro realizado com sucesso!")
      }).catch(() => {
          //res.send("Erro: Cadastrado não foi realizado com sucesso!" + erro)
@@ -245,8 +270,6 @@ app.post('/cadastroPagina-realizado', async (req, res) => {
 app.post('/logout', function(req, res) {
     return res.render('login', { auth: false, token: null, message: null });
 });
-
-
 
 app.listen(port,() => {
     console.log(`Servidor rodando em: http://localhost:${port}`);
