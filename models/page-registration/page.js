@@ -1,7 +1,6 @@
-const db = require('./db');
-//const cadastro = models.cadastro;
+const db = require('../../database/db');
 
-const CadastroPagina = db.sequelize.define('cadastroPagina', {
+const Page = db.sequelize.define('page', {
     id: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -32,18 +31,23 @@ const CadastroPagina = db.sequelize.define('cadastroPagina', {
         type: db.Sequelize.STRING,
         allowNull:false
     },
-    cadastro_id: {
+    user_id: {
         type: db.Sequelize.INTEGER,
         foreignKey: true}
 })
 
-CadastroPagina.associate = (models) => {
-    CadastroPagina.belongsTo(models.Cadastro,
-    { foreignKey: 'user_id', as: 'cadastros' });
+Page.associate = (models) => {
+    Page.belongsTo(models.user,
+    { foreignKey: 'user_id', as: 'users' });
+};
+
+Page.associate = (models) => {
+    Page.hasMany(models.job,
+    { foreignKey: 'job_id', as: 'jobes' });
 };
 
 
 //Criar a tabela
-//CadastroPagina.sync({force: true})
+//Page.sync({force: true})
 
-module.exports = CadastroPagina;
+module.exports = Page;

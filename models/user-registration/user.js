@@ -1,7 +1,7 @@
-const db = require('./db');
-//const CadastroPagina = require("./cadastroPagina");
+const db = require('../../database/db');
 
-const Cadastro = db.sequelize.define('cadastro', {
+
+const User = db.sequelize.define('user', {
     id: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -62,11 +62,11 @@ const Cadastro = db.sequelize.define('cadastro', {
 
 })
 
-Cadastro.associate = (models) => {
-    Cadastro.hasMany(models.cadastroPagina,
-    { foreignKey: 'cadastro_id', as: 'cadastroPaginas' });
+User.associate = (models) => {
+    User.hasMany(models.page,
+    { foreignKey: 'user_id', as: 'pages' });
 };
 //Criar a tabela
-//Cadastro.sync({force: true})
+//User.sync({force: true})
 
-module.exports = Cadastro;
+module.exports = User;

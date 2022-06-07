@@ -1,6 +1,6 @@
-const db = require('./db')
+const db = require('../../database/db');
 
-const CadastroVaga = db.sequelize.define('cadastroVaga', {
+const Job = db.sequelize.define('job', {
     id: {
         type: db.Sequelize.INTEGER,
         autoIncrement: true,
@@ -31,10 +31,19 @@ const CadastroVaga = db.sequelize.define('cadastroVaga', {
     cidade: {
         type: db.Sequelize.STRING,
         allowNull:false
-    }
+    },
+    job_id: {
+        type: db.Sequelize.INTEGER,
+        foreignKey: true}
+
 })
 
+Job.associate = (models) => {
+    Job.belongsTo(models.page,
+    { foreignKey: 'job_id', as: 'jobs' });
+};
 //Criar a tabela
-//CadastroVaga.sync({force: true})
+//Job.sync({force: true})
 
-module.exports = CadastroVaga;
+
+module.exports = Job;
